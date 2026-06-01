@@ -1,0 +1,45 @@
+# Lab: Question Answering with LangChain, OpenAI, and MultiQuery Retriever
+# Ironhack Week 18 — Week 18 Day 3
+#
+# ⚠️  IMPORTANT: This notebook uses OLD-STYLE langchain imports (langchain.retrievers,
+#   langchain.schema, langchain.document_loaders, etc.) that were REMOVED in langchain 1.x.
+#   We pin to the 0.3.x ecosystem where these imports still exist.
+#
+# ── Quick start ──────────────────────────────────────────────
+#   conda env create -f environment.yml
+#   conda activate chatbot-multi-query
+#   jupyter notebook lab-chatbot-with-multi-query-retriever.ipynb
+# ────────────────────────────────────────────────────────────
+
+name: chatbot-multi-query
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # ── Core runtime ──
+  - python>=3.11,<3.14
+  - pip
+  - ipykernel
+  - jupyter
+
+  # ── Pip-only packages (pinned to tested versions) ──
+  - pip:
+      # LangChain ecosystem (0.3.x — old-style imports still work)
+      - langchain==0.3.30
+      - langchain-community==0.3.30
+      - langchain-core==0.3.86
+      - langchain-elasticsearch==0.4.0
+      - langchain-experimental==0.3.4
+      - langchain-openai==0.3.35
+      - langchain-text-splitters==0.3.11
+
+      # Multi-query retriever lab specific
+      - tiktoken==0.13.0     # token counting for text splitting
+      - jq==1.11.0           # JSON query in JSONLoader
+      - lark==1.3.1          # parser (langchain dependency)
+      - elasticsearch==8.19.3
+
+      # Ancillary (pinned for reproducibility)
+      - pydantic>=2.7.4
+      - pydantic-settings==2.14.1
